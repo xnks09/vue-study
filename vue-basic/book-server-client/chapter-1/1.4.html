@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>vue 시작하기!!</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0/dist/vue.js"></script>
+    </head>
+    <body>
+        <h1>vue 시작하기!!!</h1>
+        <div id="start">
+            <a v-bind:href="link1">페이지 이동</a>
+            <img v-bind:src="src1" alt="fron.png">
+            <!-- v-bind대신 아래와 같이 :만 약어로 사용 가능 -->
+            <a :href="link1">페이지 이동</a>
+            <img :src="src1" alt="fron.png">
+        </div>
+        <script type="text/javascript">
+            let app = new Vue({
+                el: '#start',
+                //데이터 바인딩은 텍스트, a 또는 img 태그와 같이 외부 리소스를 사용하는 태그에서도
+                //바인딩하여 유동적으로 외부 리소스 변경이 가능함
+                //태그 속성에 vue 인스턴스에 생성된 데이터를 바인딩하기 위해서는 v-bind:를 붙여줘야함
+                data() {
+                    return {
+                        link1: 'http://blog.naver.com/pjt3591oo',
+                        src1: 'https://ssl.pstatic.net/static.news/image/news/m/2022/06/29/sp_media.png'
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

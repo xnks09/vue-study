@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>vue 시작하기!!</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0/dist/vue.js"></script>
+    </head>
+    <body>
+        <h1>vue 시작하기!!!</h1>
+        <div id="start">
+            <!-- vue 인스턴스에 정의된 데이터 사용 -->
+            {{ message }}
+        </div>
+        <script type="text/javascript">
+            let app = new Vue({
+                //el은 웹 애플리케이션의 루트를 지정해주는 것을 의미
+                el: '#start', 
+                //data는 화면에 띄우거나 웹 애플리케이션을 동작하는데 필요한 데이터를 정의
+                //속성형태로 사용
+                data: { 
+                    message: '!!!!!hello world!!!!!'
+                }
+            })
+        </script>
+    </body>
+</html>
