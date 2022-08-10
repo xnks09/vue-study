@@ -1,3 +1,8 @@
+<!-- 
+    [코드 1-17] 조건부 렌더링 2.
+    
+    v-if, v-else, v-else-if를 이용하여 조건검사
+-->
 <html>
     <head>
         <meta charset="utf-8">
@@ -7,16 +12,17 @@
     <body>
         <h1>vue 시작하기!!!</h1>
         <div id="start">
-            <h1>오늘의 날짜 : {{date.getFullYear()}} - {{parseInt(date.getMonth()) + 1}} - {{date.getDay()}}</h1>
+            <h1 v-if="condition1">1</h1>
+            <h1 v-else-if="condition2">2</h1>
+            <h1 v-else>3</h1>
         </div>
         <script type="text/javascript">
             let app = new Vue({
                 el: '#start',
-                //데이터 바인딩은 자바스크립트 코드도 가능
-                //그러나 내부에 복잡한 JS코드를 넣지 않는 것이 좋음
                 data() {
                     return {
-                        date: new Date()
+                        condition1: false,
+                        condition2: false
                     }
                 }
             });

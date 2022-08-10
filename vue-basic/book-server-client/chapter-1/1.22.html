@@ -1,0 +1,38 @@
+<!-- 
+    [코드 1-22] 클릭 이벤트 - methods에 정의된 함수 사용
+
+    [v-on:이벤트="함수"] 형태로 사용
+-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>vue 시작하기!!</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0/dist/vue.js"></script>
+    </head>
+    <body>
+        <h1>vue 시작하기!!!</h1>
+        <div id="start">
+            <button type="button" name="button" v-on:click="increase">+</button>
+            <button type="button" name="button" v-on:click="decrease">-</button>
+            <h1>{{value}}</h1>
+        </div>
+        <script type="text/javascript">
+            let app = new Vue({
+                el: '#start',
+                data() {
+                    return {
+                        value: 1
+                    }
+                },
+                methods: {
+                    increase: function(){
+                        this.value += 1
+                    },
+                    decrease: function(){
+                        this.value -= 1
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

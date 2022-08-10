@@ -1,0 +1,37 @@
+<!-- 
+    [코드 1-15] watch를 이용하여 바인딩된 데이터 감시
+    
+    watch 속성을 이용하여 바인딩된 데이터의 변경을 감지하여 특정 기능을 수행
+-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>vue 시작하기!!</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0/dist/vue.js"></script>
+    </head>
+    <body>
+        <h1>vue 시작하기!!!</h1>
+        <div id="start">
+            <input type="text" name="" v-model:value="value">         
+            <h1>{{sum}}</h1>
+        </div>
+        <script type="text/javascript">
+            let app = new Vue({
+                el: '#start',
+                data() {
+                    return {
+                        value: 1,
+                        sum: 1
+                    }
+                },
+                watch: {
+                    value: function(d) {  //변경된 값을 첫 번째 인자로 받음
+                        if(!isNaN(d)){
+                            this.sum += parseInt(d)
+                        }
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

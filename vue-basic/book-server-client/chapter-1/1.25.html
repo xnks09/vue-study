@@ -1,0 +1,52 @@
+<!-- 
+    =========================================================================================================
+    [코드 1-25] 키보드 이벤트
+    ---------------------------------------------------------------------------------------------------------
+    v-on:keyup를 등록한 지점에서 키보드 이벤트가 발생하면 핸들러를 호출
+    
+    * 키보드 이벤트
+    - enter, tab, delete, esc, space, up, down, left, right
+
+    * 아래는 2.1.+ 버전에 추가됨
+    - ctrl, alt, shift, meta(window키)
+
+    * 만약 특수키가 아니라 숫자나 문자에 대해 이벤트를 걸고 싶다면 아래와 같이 사용
+      65 : 대문자A
+      <input type="text" name="text" v-on:keyup.65="key('t', $event)">
+
+    * 앞에서 데이터 바인딩을 위해 v-bind 대신 :로 줄여서 사용했음
+      이벤트도 마찬가지로 v-on 대신 @로 사용 가능
+
+      <input type="text" name="text" @keyup="key('t', $event)">
+      <button type="button" name="button" @click="test('t', $event)">인자전달</button>
+    ---------------------------------------------------------------------------------------------------------
+-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>vue 시작하기!!</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0/dist/vue.js"></script>
+    </head>
+    <body>
+        <h1>vue 시작하기!!!</h1>
+        <div id="start">
+            <input type="text" name="text" v-on:keyup="key('t', $event)">            
+        </div>
+        <script type="text/javascript">
+            let app = new Vue({
+                el: '#start',
+                data() {
+                    return {
+                        value: 1
+                    }
+                },
+                methods: {
+                    key: function(test, event){
+                        console.log(event)
+                        alert(test);
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

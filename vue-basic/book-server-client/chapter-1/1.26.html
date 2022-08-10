@@ -1,0 +1,38 @@
+<!-- 
+    =========================================================================================================
+    [코드 1-26] 이벤트 전파 방지
+    ---------------------------------------------------------------------------------------------------------
+    vue.js에서 가장 일반적 이벤트 전파는 submit 이후에 페이지가 새로고침되는 현상
+
+    * event.preventDefault()는 체이닝으로 설정할 수 있음
+      아래와 같이 @submit에 prevent를 체이닝하면 핸들러 내부에서 event.preventDefault() 호출할 필요 없음
+      <form @submit.prevent="s($event)">
+          <button type="submit" name="button">제출</button>
+      </form>
+    ---------------------------------------------------------------------------------------------------------
+-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>vue 시작하기!!</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0/dist/vue.js"></script>
+    </head>
+    <body>
+        <h1>vue 시작하기!!!</h1>
+        <div id="start">
+            <form @submit="s($event)">
+                <button type="submit" name="button">제출</button>
+            </form>
+        </div>
+        <script type="text/javascript">
+            let app = new Vue({
+                el: '#start',
+                methods: {
+                    s: function(event){
+                        //event.preventDefault()
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,43 @@
+<!-- 
+    [코드 1-21] 리스트 렌더링 - (2)
+
+    computed나 methods를 활용하면 해당 리스트에서 특정 값만 필터링을
+    만들어서 구현 가능
+-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>vue 시작하기!!</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0/dist/vue.js"></script>
+    </head>
+    <body>
+        <h1>vue 시작하기!!!</h1>
+        <div id="start">
+            <ul>
+                <li v-for="data in calcDataSet">{{data.t}}</li>
+            </ul>
+        </div>
+        <script type="text/javascript">
+            let app = new Vue({
+                el: '#start',
+                data() {
+                    return {
+                        dataSet: [
+                            { t: '1'},
+                            { t: '2'},
+                            { t: '3'},
+                            { t: '4'}
+                        ]
+                    }
+                },
+                computed: {
+                    calcDataSet: function() {
+                        return this.dataSet.filter(function (item){
+                            return item.t % 3 === 0 //!(item.t % 3)
+                        })
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

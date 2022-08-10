@@ -1,0 +1,35 @@
+<!-- 
+    [코드 1-20] 리스트 렌더링 - (1)
+-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>vue 시작하기!!</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0/dist/vue.js"></script>
+    </head>
+    <body>
+        <h1>vue 시작하기!!!</h1>
+        <div id="start">
+            <ul>
+                <li v-for="data in dataSet">{{data.t}}</li>
+                <!-- 해당요소와 몇 번째 요소인지 인덱스도 가져오는 방법 -->
+                <li v-for="(data, idx) in dataSet">{{idx}} : {{data.t}}</li>
+            </ul>
+        </div>
+        <script type="text/javascript">
+            let app = new Vue({
+                el: '#start',
+                data() {
+                    return {
+                        dataSet: [
+                            { t: '1'},
+                            { t: '2'},
+                            { t: '3'},
+                            { t: '4'}
+                        ]
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

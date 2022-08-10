@@ -1,0 +1,44 @@
+<!-- 
+    [코드 1-19] 조건부 렌더링 4.
+    
+    조건에 따라 렌더링이 아니라 화면 출력 여부만 결정할 때는
+    v-if보다는 v-show를 사용함
+
+    v-if와 v-show의 차이점은 v-if같은 경우는 초기에 렌더링이 되지 않음.
+    그러나 v-show는 초기에 렌더링 후 참/거짓에 따라 css의 display를 토글함 
+    (*토글 : 전원을 on/off 하는 것 처럼 특정 행위는 반복하는 것)
+
+    따라서 v-if는 조건에 맞을 때만 렌더링하므로 초기에 매우 빠르게 화면 출력 가능.
+    그러나 조건에 따라 렌더링을 하기에 조건이 자주 변경되면, v-if보다는 v-show를 사용하는 것이
+    성능향상에 도움이 됨
+-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>vue 시작하기!!</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0/dist/vue.js"></script>
+    </head>
+    <body>
+        <h1>vue 시작하기!!!</h1>
+        <div id="start">
+            <input type="text" v-model:value="value">
+            <div v-show="isAnswer">안녕하세요!</div>
+        </div>
+        <script type="text/javascript">
+            let app = new Vue({
+                el: '#start',
+                data() {
+                    return {
+                        value: '',
+                        isAnswer: false
+                    }
+                },
+                watch: {
+                    value: function(v){
+                        this.isAnswer = true;
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

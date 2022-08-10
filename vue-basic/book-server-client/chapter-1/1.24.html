@@ -1,0 +1,48 @@
+<!-- 
+    =========================================================================================================
+    [코드 1-24] 클릭 이벤트 - 이벤트 핸들러에 인자 전달
+    ---------------------------------------------------------------------------------------------------------
+    [v-on:click="test('t', $event)"] 형태로 인자 전달
+    
+    이벤트 버블링 방지를 위해 이벤트 객체를 통해 이벤트 핸들러 내부에서 event.preventDefault()나
+    event.stopPropagation()을 호출할 수 있음
+
+    event.stopPropagation()은 이벤트가 상위 DOM으로 전파되는 것을 방지하는 이벤트
+    event.preventDefault()는 추가로 발생하는 이벤트 전파를 하지 않음
+    vue.js에서 submit 이벤트 발생시 화면이 새로고침되나, event.preventDefault()를 넣어 주면 새로고침되지 않음
+
+    click시 왼쪽, 오른쪽, 가운데 모두 클릭 이벤트 가능
+    v-on:click.right="test('t', $event)
+    v-on:click.left="test('t', $event)
+    v-on:click.middle="test('t', $event)
+    ---------------------------------------------------------------------------------------------------------
+-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>vue 시작하기!!</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0/dist/vue.js"></script>
+    </head>
+    <body>
+        <h1>vue 시작하기!!!</h1>
+        <div id="start">
+            <button type="button" name="button" v-on:click="test('t', $event)">인자전달</button>
+        </div>
+        <script type="text/javascript">
+            let app = new Vue({
+                el: '#start',
+                data() {
+                    return {
+                        value: 1
+                    }
+                },
+                methods: {
+                    test: function(test, event){
+                        console.log(event)
+                        alert(test);
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

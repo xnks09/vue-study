@@ -1,0 +1,52 @@
+<!-- 
+    =========================================================================================================
+    [코드 1-27] 라이프 사이클 훅 걸기
+    ---------------------------------------------------------------------------------------------------------
+    
+    * vue.js에는 다음과 같은 훅이 존재함
+    - beforeCreate: 인스턴스 생성되기 전 호출
+    - craeted: 인스턴스 생성 후 호출, 아직 마운트는 호출되기 전
+    - beforeMount: 데이터가 돔에 마운팅 되기 전 호출(SSR에서는 호출되지 않음)
+    - mounted: el에 정의한 부분에 vue 인스턴스를 포함시킴. mounted가 호출될 때는 el에 정의된 부분에
+               vue 인스턴스가 포함된 상태. 즉, 모든 화면이 렌더링이 완료된 상태
+    - beforeUpdate: vue 인스턴스에 생성한 데이터가 변경될 때, 가상돔이 재 렌더링, 패치가 되기 전에 호출
+                    (SSR에서는 호출되지 않음)
+    - update: vue 인스턴스에 생성한 데이터가 변경될 때, 가상돔이 재 렌더링, 패치가된 후 호출
+    - beforeDestroy: vue 인스턴스를 제거하기 전에 호출(SSR에서는 호출되지 않음)
+    - destory: vue 인스턴스가 제거된 후 호출
+
+    * 아래의 결과
+    beforeCreated
+    created
+    beforeMounted
+    mounted
+    ---------------------------------------------------------------------------------------------------------
+-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>vue 시작하기!!</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0/dist/vue.js"></script>
+    </head>
+    <body>
+        <h1>vue 시작하기!!!</h1>
+        <div id="start"></div>
+        <script type="text/javascript">
+            let app = new Vue({
+                el: '#start',
+                created() {
+                    console.log('created')
+                },
+                beforeCreate() {
+                    console.log('beforeCreated')
+                },
+                mounted() {
+                    console.log('mounted')
+                },
+                beforeMount() {
+                    console.log('beforeMounted')
+                }
+            });
+        </script>
+    </body>
+</html>

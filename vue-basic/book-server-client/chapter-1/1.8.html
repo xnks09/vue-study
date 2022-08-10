@@ -7,16 +7,17 @@
     <body>
         <h1>vue 시작하기!!!</h1>
         <div id="start">
-            <h1>오늘의 날짜 : {{date.getFullYear()}} - {{parseInt(date.getMonth()) + 1}} - {{date.getDay()}}</h1>
+            <input type="text" name="" v-model:value="text">
+            <h1>{{text}}</h1>
         </div>
         <script type="text/javascript">
             let app = new Vue({
                 el: '#start',
-                //데이터 바인딩은 자바스크립트 코드도 가능
-                //그러나 내부에 복잡한 JS코드를 넣지 않는 것이 좋음
+                //양방향 바인딩(v-model) : 바인딩된 데이터가 변경되면, vue 인스턴스에 생성된 데이터가 바뀌고 이 데이터가 바뀌면
+                //해당 데이터로 바인딩된 데이터도 변경됨
                 data() {
                     return {
-                        date: new Date()
+                        text: 'hello world'
                     }
                 }
             });

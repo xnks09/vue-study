@@ -7,16 +7,17 @@
     <body>
         <h1>vue 시작하기!!!</h1>
         <div id="start">
-            <h1>오늘의 날짜 : {{date.getFullYear()}} - {{parseInt(date.getMonth()) + 1}} - {{date.getDay()}}</h1>
+            <input type="text" name="" v-bind:value="text">
+            <h1>{{text}}</h1>
         </div>
         <script type="text/javascript">
             let app = new Vue({
                 el: '#start',
-                //데이터 바인딩은 자바스크립트 코드도 가능
-                //그러나 내부에 복잡한 JS코드를 넣지 않는 것이 좋음
+                //단반향 바인딩(v-bind) : HTML 코드에서 vue 인스턴스에 정의된 데이터의 값을 변경할 수 없음
+                //input 창에서 바인딩된 값을 변경해도 h1태그의 값에는 변화가 없음
                 data() {
                     return {
-                        date: new Date()
+                        text: 'hello world'
                     }
                 }
             });

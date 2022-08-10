@@ -7,16 +7,22 @@
     <body>
         <h1>vue 시작하기!!!</h1>
         <div id="start">
-            <h1>오늘의 날짜 : {{date.getFullYear()}} - {{parseInt(date.getMonth()) + 1}} - {{date.getDay()}}</h1>
+            <input type="checkbox" value="1" v-model="checks">
+            <label>1</label>
+            <input type="checkbox" value="2" v-model="checks">
+            <label>2</label>
+            <input type="checkbox" value="3" v-model="checks">
+            <label>3</label>
+            <br>
+            <h1>체크리스트 : {{ checks }}</h1>
         </div>
         <script type="text/javascript">
             let app = new Vue({
                 el: '#start',
-                //데이터 바인딩은 자바스크립트 코드도 가능
-                //그러나 내부에 복잡한 JS코드를 넣지 않는 것이 좋음
+                //checkbox는 여러 개의 선택이 가능하기에 리스트 형태
                 data() {
                     return {
-                        date: new Date()
+                        checks: []
                     }
                 }
             });

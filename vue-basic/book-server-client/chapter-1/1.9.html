@@ -7,16 +7,21 @@
     <body>
         <h1>vue 시작하기!!!</h1>
         <div id="start">
-            <h1>오늘의 날짜 : {{date.getFullYear()}} - {{parseInt(date.getMonth()) + 1}} - {{date.getDay()}}</h1>
+            <select v-model="select">
+                <option value="" disabled>옵션 중 하나를 선택해주세요.</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+            </select>
+            <h1>선택함: {{select}}</h1>
         </div>
         <script type="text/javascript">
             let app = new Vue({
                 el: '#start',
-                //데이터 바인딩은 자바스크립트 코드도 가능
-                //그러나 내부에 복잡한 JS코드를 넣지 않는 것이 좋음
+                //select에 대해 바인딩 가능
                 data() {
                     return {
-                        date: new Date()
+                        select: ''
                     }
                 }
             });

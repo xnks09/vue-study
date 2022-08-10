@@ -7,16 +7,22 @@
     <body>
         <h1>vue 시작하기!!!</h1>
         <div id="start">
-            <h1>오늘의 날짜 : {{date.getFullYear()}} - {{parseInt(date.getMonth()) + 1}} - {{date.getDay()}}</h1>
+            <input type="radio" value="1" v-model="pick">
+            <label>1</label>
+            <input type="radio" value="2" v-model="pick">
+            <label>2</label>
+            <input type="radio" value="3" v-model="pick">
+            <label>3</label>
+            <br>
+            <h1>체크리스트 : {{ pick }}</h1>
         </div>
         <script type="text/javascript">
             let app = new Vue({
                 el: '#start',
-                //데이터 바인딩은 자바스크립트 코드도 가능
-                //그러나 내부에 복잡한 JS코드를 넣지 않는 것이 좋음
+                //radio는 check박스와 다르게 하나의 값만 선택 가능
                 data() {
                     return {
-                        date: new Date()
+                        pick: ''
                     }
                 }
             });

@@ -1,0 +1,41 @@
+<!-- 
+    [코드 1-14] methods를 사용한 데이터 바인딩
+    
+    아래의 계산식은 methods를 사용했지만, 사실은 computed를 사용해야함
+    computed나 methods 속성을 이용한 결과는 동일하나, computed는 데이터 속성에서 사용한 값이
+    변경되지 않는다면 캐싱되어 사용함. 즉 동일한 값이면, 여러 번 계산하지 않음
+
+    그러나 methods는 값의 변경 여부와 관계없이 호출될 때 마다 계산됨.
+    따라서 v-for을 이용하여 반복문을 사용할 경우 돌아가는 횟수가 많다면 캐싱 여부에 따라 성능 저하 가능
+-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>vue 시작하기!!</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0/dist/vue.js"></script>
+    </head>
+    <body>
+        <h1>vue 시작하기!!!</h1>
+        <div id="start">
+            <!-- methods를 사용할 경우 아래의 calcDate에 함수로 ()가 붙음 -->
+            <h1>{{calcDate()}}</h1>            
+            <h2>{{calcDate()}}</h2>  
+            <h3>{{calcDate()}}</h3>            
+        </div>
+        <script type="text/javascript">
+            let app = new Vue({
+                el: '#start',
+                data() {
+                    return {
+                        date: new Date() //아래의 computed에서 this를 통해 사용 가능
+                    }
+                },
+                methods: {
+                    calcDate: function() {
+                        return `${this.date.getFullYear()} - ${parseInt(this.date.getMonth()) + 1} -${this.date.getDay()}`
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<!-- 
+    [코드 1-13] computed를 사용한 데이터 바인딩
+
+    앞에서 데이터 바인딩 후 {{ }} 안에 JS 코드를 실행하여 날짜를 삽입했음.
+    그러나 HTML 안에 자바스크립트 코드가 포함되면 유지보수하기 어려움.
+    이를 computed를 이용하여 해결 가능
+    
+-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>vue 시작하기!!</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0/dist/vue.js"></script>
+    </head>
+    <body>
+        <h1>vue 시작하기!!!</h1>
+        <div id="start">
+            <h1>{{calcDate}}</h1>            
+            <h2>{{calcDate}}</h2>  
+            <h3>{{calcDate}}</h3>            
+        </div>
+        <script type="text/javascript">
+            let app = new Vue({
+                el: '#start',
+                data() {
+                    return {
+                        date: new Date() //아래의 computed에서 this를 통해 사용 가능
+                    }
+                },
+                //아래와 같이 computed를 사용하지 않으면 아래의 JS코드들이 위 html코드안에 삽입되어야함....
+                computed: {
+                    calcDate: function() {
+                        //return this.date.getFullYear() + '-' + parseInt(this.date.getMonth()) + 1 + '-' + this.date.getDay()
+                        //아래와 같이 템플릿 문자열을 사용하면 간단하게 생성이 가능
+                        return `${this.date.getFullYear()} - ${parseInt(this.date.getMonth()) + 1} -${this.date.getDay()}`
+
+                        // this : vue인스턴스 내부에서 data 메소드에 정의된 값들을 사용하기 위해서는 this를 이용해서 참조해야 함   
+
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
