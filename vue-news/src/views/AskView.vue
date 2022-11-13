@@ -3,7 +3,10 @@
     <!-- <div v-for="item in ask">{{ item.title }}</div> -->
     <!-- <div v-for="item in fetchedAsk">{{ item.title }}</div> -->
     <p v-for="item in fetchedAsk">
-      <a :href="item.url">{{item.title}}</a>
+      <!-- <a :href="item.url">{{item.title}}</a> -->
+      <router-link v-bind:to="`/item/${item.id}`">
+        {{ item.title }}
+      </router-link>
       <small>{{item.time_ago}} by {{item.domain}}</small>
     </p>
   </div>

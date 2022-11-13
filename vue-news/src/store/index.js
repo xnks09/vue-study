@@ -6,11 +6,16 @@ export const store = createStore({
     state: {
         news: [],
         jobs: [],
-        ask: []
+        ask: [],
+        user: {},
+        item: []
     },
     getters: {
         fetchedAsk(state) {
             return state.ask;
+        },
+        fetchedItem(state){
+            return state.item;
         }
     }
     ,

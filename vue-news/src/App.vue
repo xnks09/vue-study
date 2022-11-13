@@ -5,7 +5,9 @@
 
     <!-- 이것은 두 번째로 추천하는 방식?? -->
     <!-- <tool-bar></tool-bar> -->
-    <router-view></router-view>
+    <Transition name="page">
+      <router-view></router-view>
+    </Transition>
   </div>
 </template>
 
@@ -23,5 +25,14 @@ export default {
 body {
   padding: 0;
   margin: 0;
+}
+
+/* Router transition */
+.page-enter-active, .page-leave-active {
+  transition: opacity 0.5s ease;
+}
+.page-enter, 
+.page-leave-to {
+  opacity: 0;
 }
 </style>
