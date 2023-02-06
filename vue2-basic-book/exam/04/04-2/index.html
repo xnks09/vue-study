@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+</head>
+<body>
+    <div id="app">
+        <!-- User 컴포넌트가 뿌려질 영역 -->
+        <router-view></router-view>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script> <!-- 라우터 CDN 추가 -->
+
+    <script>
+
+        var User = {
+            template: `
+                <div>
+                    User Component
+                    <router-view></router-view>
+                </div>
+            `
+        };
+
+
+        // Main, Login 컴포넌트 정의
+        var Main = {template: '<div>main</div>'};
+        var Login = {template: '<div>login</div>'};
+
+        // 각 URL에 맞춰 표시할 컴포넌트 지정
+        var routes = [
+            { path: '/main', component: Main },
+            { path: '/login', component: Login }
+        ]
+
+        // 뷰 라우터 정의
+        var router = new VueRouter({
+            routes
+        });
+
+        // 뷰 인스턴스에 라우터 추가
+        var app = new Vue({
+            router
+        }).$mount('#app');
+
+    </script>
+</body>
+</html>
