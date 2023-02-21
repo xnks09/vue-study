@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+</head>
+<body>
+    <div id="app">
+        <router-view name="header"></router-view>
+        <router-view></router-view>
+        <router-view name="footer"></router-view>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script> <!-- 라우터 CDN 추가 -->
+
+    <script>
+
+        var Body = { template: '<div>This is Body</div>' }
+        var Header = { template: '<div>This is Header</div>' }
+        var Footer = { template: '<div>This is Footer</div>' }
+
+        var router = new VueRouter({
+            routes: [
+                {
+                    path: '/',
+                    components: {
+                        default: Body,
+                        header: Header,
+                        footer: Footer
+                    }
+                }
+            ]
+        });
+
+        // 뷰 인스턴스에 라우터 추가
+        var app = new Vue({
+            router
+        }).$mount('#app');
+
+    </script>
+</body>
+</html>
